@@ -1,0 +1,76 @@
+<script>
+    /* @polymerBehavior */
+    BootstrapFormGroupBehavior = {
+        created: function () {
+            this.classList.add('form-group');
+        },
+        properties: {
+            /**
+             * Indicates the label column length (extra small device) when located in <bs-form horizontal>.
+             */
+            xsLabelLength: Number,
+            /**
+             * Indicates the label column length (small device) when located in <bs-form horizontal>.
+             */
+            smLabelLength: Number,
+            /**
+             * Indicates the label column length (medium device) when located in <bs-form horizontal>.
+             */
+            mdLabelLength: Number,
+            /**
+             * Indicates the label column length (large device) when located in <bs-form horizontal>.
+             */
+            lgLabelLength: Number,
+            /**
+             * Defines the current input label.
+             */
+            label: {
+                type: String,
+                notify: true,
+                reflectToAttribute: true
+            },
+            horizontalMode: {
+                type: Boolean,
+                value: false
+            }
+        },
+        _setupHorizontal: function () {
+            if (this.xsLabelLength) {
+                this._labelClass = 'col-xs-' + this.xsLabelLength;
+                this._inputClass = 'col-xs-' + (12 - this.xsLabelLength);
+                this._offsetClass = 'col-xs-offset-' + this.xsLabelLength;
+            }
+            if (this.smLabelLength) {
+                this._labelClass = 'col-sm-' + this.smLabelLength;
+                this._inputClass = 'col-sm-' + (12 - this.smLabelLength);
+                this._offsetClass = 'col-sm-offset-' + this.smLabelLength;
+            }
+            if (this.mdLabelLength) {
+                this._labelClass = 'col-md-' + this.mdLabelLength;
+                this._inputClass = 'col-md-' + (12 - this.mdLabelLength);
+                this._offsetClass = 'col-md-offset-' + this.mdLabelLength;
+            }
+            if (this.lgLabelLength) {
+                this._labelClass = 'col-lg-' + this.lgLabelLength;
+                this._inputClass = 'col-lg-' + (12 - this.lgLabelLength);
+                this._offsetClass = 'col-lg-offset-' + this.lgLabelLength;
+            }
+
+            if (!this._labelClass) {
+                this._labelClass = 'col-xs-2';
+                this._inputClass = 'col-xs-10';
+                this._offsetClass = 'col-xs-offset-2';
+            }
+
+            this._labelClass += ' control-label';
+        },
+        attached: function () {
+            this.async(function () {
+                this.horizontalMode = this.parentNode.horizontal;
+                if (this.horizontalMode){
+                    this._setupHorizontal();
+                }
+            });
+        }
+    };
+</script>

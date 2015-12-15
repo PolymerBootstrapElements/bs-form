@@ -1,0 +1,61 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="bs-form-group-behavior.html">
+
+<!--
+Bootstrap styled input element.
+
+Example:
+    <bs-textarea placeholder="Type description here..."
+                 value="{{description}}"
+                 label="Product Description"></bs-textarea>
+
+@demo
+-->
+
+<dom-module id="bs-textarea">
+
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+
+        <label for="theInput">{{label}}</label>
+
+        <template is="dom-if" if="{{horizontalMode}}">
+            <div class$="{{_inputClass}}">
+                <textarea id="theInput"
+                          placeholder$="{{placeholder}}"
+                          class="form-control">{{value:input}}</textarea>
+            </div>
+        </template>
+
+        <template is="dom-if" if="{{!horizontalMode}}">
+            <textarea id="theInput"
+                      placeholder$="{{placeholder}}"
+                      class="form-control">{{value:input}}</textarea>
+        </template>
+
+    </template>
+
+    <script>
+        Polymer({
+            is: 'bs-textarea',
+            behaviors: [
+                BootstrapFormGroupBehavior
+            ],
+            properties: {
+                /**
+                 * Defines current input edited value.
+                 */
+                value: {
+                    type: String,
+                    notify: true,
+                    reflectToAttribute: true
+                }
+            }
+        });
+    </script>
+
+</dom-module>

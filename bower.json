@@ -1,0 +1,43 @@
+{
+  "name": "bs-form",
+  "version": "0.0.1",
+  "description": "Bootstrap form stuff using Polymer Elements.",
+  "authors": [
+    "Gregory Ghez <gregory.ghez@gmail.com>"
+  ],
+  "keywords": [
+    "web-components",
+    "web-component",
+    "polymer",
+    "form",
+    "label",
+    "input",
+    "select",
+    "textarea",
+    "bootstrap",
+    "twitter"
+  ],
+  "main": [
+    "bs-grid.html"
+  ],
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PolymerBootstrapElements/bs-form.git"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/PolymerBootstrapElements/bs-form",
+  "ignore": [],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.1.0",
+    "bootstrap": "~3.3.6",
+    "iron-input": "polymerelements/iron-input#~1.0.7"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^3.3.0",
+    "marked-element": "PolymerElements/marked-element#~1.1.1",
+    "iron-component-page": "polymerelements/iron-component-page#~1.1.2",
+    "bs-grid": "PolymerBootstrapElements/bs-grid",
+    "bs-button": "polymerbootstrapelements/bs-button"
+  }
+}

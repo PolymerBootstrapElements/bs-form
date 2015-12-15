@@ -1,0 +1,62 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<link rel="import" href="bs-form-group-behavior.html">
+
+<!--
+Bootstrap styled checkbox as Polymer Element.
+
+Example:
+    <bs-checkbox label="Remember me" checked="{{rememberMe}}"></bs-checkbox>
+
+@demo
+-->
+<dom-module id="bs-checkbox">
+
+    <template>
+
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+
+        <template is="dom-if" if="{{horizontalMode}}">
+            <div class$="{{_inputClass}}">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" checked="{{checked::change}}"> {{label}}
+                    </label>
+                </div>
+            </div>
+        </template>
+
+        <template is="dom-if" if="{{!horizontalMode}}">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" checked="{{checked::change}}"> {{label}}
+                </label>
+            </div>
+        </template>
+
+    </template>
+
+    <script>
+        Polymer({
+            is: 'bs-checkbox',
+            behaviors: [
+                BootstrapFormGroupBehavior
+            ],
+            properties: {
+                /**
+                 * Defines current checkbox state.
+                 */
+                checked: {
+                    type: Boolean,
+                    notify: true,
+                    reflectToAttribute: true
+                }
+            }
+        });
+    </script>
+
+</dom-module>

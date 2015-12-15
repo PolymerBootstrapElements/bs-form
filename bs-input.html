@@ -1,0 +1,69 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-input/iron-input.html">
+<link rel="import" href="bs-form-group-behavior.html">
+
+<!--
+Bootstrap styled input element.
+
+Example:
+    <bs-input type="email"
+              placeholder="Type email here..."
+              value="{{email}}"
+              label="First Name"></bs-input>
+
+@demo
+-->
+
+<dom-module id="bs-input">
+
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+
+        <label for="theInput">{{label}}</label>
+
+        <template is="dom-if" if="{{horizontalMode}}">
+            <div class$="{{_inputClass}}">
+                <input id="theInput"
+                       is="iron-input"
+                       type$="{{type}}"
+                       placeholder$="{{placeholder}}"
+                       bind-value="{{value}}"
+                       class="form-control"/>
+            </div>
+        </template>
+
+        <template is="dom-if" if="{{!horizontalMode}}">
+            <input id="theInput"
+                   is="iron-input"
+                   type$="{{type}}"
+                   placeholder$="{{placeholder}}"
+                   bind-value="{{value}}"
+                   class="form-control"/>
+        </template>
+
+    </template>
+
+    <script>
+        Polymer({
+            is: 'bs-input',
+            behaviors: [
+                BootstrapFormGroupBehavior
+            ],
+            properties: {
+                /**
+                 * Defines current input edited value.
+                 */
+                value: {
+                    type: String,
+                    notify: true,
+                    reflectToAttribute: true
+                }
+            }
+        });
+    </script>
+
+</dom-module>

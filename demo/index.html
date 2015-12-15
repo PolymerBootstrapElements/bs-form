@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+    <title>bs-grid Demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <!-- bootstrap peer dependency -->
+    <link rel="stylesheet" href="../../bootstrap/dist/css/bootstrap.min.css">
+    <script src="../../jquery/dist/jquery.min.js"></script>
+    <script src="../../bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- bootstrap -->
+
+    <!-- demo dependencies -->
+    <link rel="import" href="../../bs-grid/bs-grid.html">
+    <link rel="import" href="../../bs-button/bs-button.html">
+    <!-- demo -->
+
+    <!-- bs-form imports -->
+    <link rel="import" href="../bs-form.html">
+    <!-- bs-form -->
+
+    <style>
+        body {
+            margin: 20px;
+        }
+
+        .bs-example {
+            position: relative;
+            padding: 45px 15px 15px;
+            margin: 0;
+            border-color: #e5e5e5 #eee #eee;
+            border-style: solid;
+            border-width: 1px 0;
+            box-shadow: inset 0 3px 6px rgba(0, 0, 0, .05);
+        }
+
+        .bs-example:after {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #959595;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            content: "Example";
+        }
+
+
+    </style>
+</head>
+<body>
+
+<bs-container>
+
+    <h1>bs-form demo page</h1>
+    <p>Here are some bootstrap form layout using polymer elements designed for.</p>
+
+    <h3>Standard form layout</h3>
+    <div class="bs-example">
+
+        <bs-form>
+            <bs-input type="email" label="Your Email"></bs-input>
+            <bs-textarea label="Message"></bs-textarea>
+        </bs-form>
+
+    </div>
+    <figure>
+        <pre><code>&lt;bs-form&gt;
+    &lt;bs-input type=&quot;email&quot; label=&quot;Your Email&quot;&gt;&lt;/bs-input&gt;
+    &lt;bs-textarea label=&quot;Message&quot;&gt;&lt;/bs-textarea&gt;
+&lt;/bs-form&gt;</code></pre>
+    </figure>
+
+    <h3>Inlined form layout</h3>
+    <div class="bs-example">
+
+        <bs-form inline>
+            <bs-input type="email" placeholder="email@domain.com"></bs-input>
+            <bs-input type="password" placeholder="secret_pass"></bs-input>
+            <bs-checkbox checked label="Remember?"></bs-checkbox>
+            <bs-button type="primary">Log In</bs-button>
+        </bs-form>
+
+    </div>
+    <figure>
+        <pre><code>&lt;bs-form inline&gt;
+    &lt;bs-input type=&quot;email&quot; placeholder=&quot;email@domain.com&quot;&gt;&lt;/bs-input&gt;
+    &lt;bs-input type=&quot;password&quot; placeholder=&quot;secret_pass&quot;&gt;&lt;/bs-input&gt;
+    &lt;bs-checkbox checked label=&quot;Remember?&quot;&gt;&lt;/bs-checkbox&gt;
+    &lt;bs-button type=&quot;primary&quot;&gt;Log In&lt;/bs-button&gt;
+&lt;/bs-form&gt;</code></pre>
+    </figure>
+
+    <h3>Horizontal form layout</h3>
+    <div class="bs-example">
+
+        <bs-form horizontal>
+            <bs-input type="email" label="Your Email" md-label-length="3"></bs-input>
+            <bs-input type="url" label="Website" placeholder="http://yourwebsite.com" md-label-length="3"></bs-input>
+            <bs-textarea label="Message" md-label-length="3"></bs-textarea>
+            <bs-checkbox checked="true" label="Accept advertising?" md-label-length="3"></bs-checkbox>
+
+            <bs-row>
+                <bs-col md-offset="3" md-length="9">
+                    <bs-button type="primary">Post Comment</bs-button>
+                </bs-col>
+            </bs-row>
+
+        </bs-form>
+
+    </div>
+    <figure>
+       <pre><code>&lt;bs-form horizontal&gt;
+   &lt;bs-input type=&quot;email&quot; label=&quot;Your Email&quot; md-label-length=&quot;3&quot;&gt;&lt;/bs-input&gt;
+   &lt;bs-input type=&quot;url&quot; label=&quot;Website&quot; placeholder=&quot;http://yourwebsite.com&quot; md-label-length=&quot;3&quot;&gt;&lt;/bs-input&gt;
+   &lt;bs-textarea label=&quot;Message&quot; md-label-length=&quot;3&quot;&gt;&lt;/bs-textarea&gt;
+   &lt;bs-checkbox checked=&quot;true&quot; label=&quot;Accept advertising?&quot; md-label-length=&quot;3&quot;&gt;&lt;/bs-checkbox&gt;
+   &lt;bs-row&gt;
+       &lt;bs-col md-offset=&quot;3&quot; md-length=&quot;9&quot;&gt;
+           &lt;bs-button type=&quot;primary&quot;&gt;Post Comment&lt;/bs-button&gt;
+       &lt;/bs-col&gt;
+   &lt;/bs-row&gt;
+
+&lt;/bs-form&gt;</code></pre>
+    </figure>
+
+
+</bs-container>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<link rel="import" href="bs-input.html">
+<link rel="import" href="bs-textarea.html">
+<link rel="import" href="bs-checkbox.html">
+
+<!--
+Bootstrap Form container as Polymer Element.
+
+Example:
+
+    <bs-form>
+
+    </bs-form>
+
+@demo
+-->
+<dom-module id="bs-form">
+
+    <template>
+        <content></content>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'bs-form',
+            properties: {
+                /**
+                 * Specifies whether form elements are inlined or not.
+                 */
+                inline: {
+                    type: Boolean,
+                    value: false,
+                    observer: '_inlineChanged'
+                },
+                /**
+                 * Specifies whether inner elements have horizontal layout by opposite to vertically stacked.
+                 */
+                horizontal: {
+                    type: Boolean,
+                    value: false,
+                    observer: '_horizontalChanged'
+                }
+            },
+            _inlineChanged: function () {
+                if (this.inline) {
+                    this.classList.add('form-inline');
+                } else {
+                    this.classList.remove('form-inline');
+                }
+            },
+            _horizontalChanged: function () {
+                if (this.horizontal) {
+                    this.classList.add('form-horizontal');
+                    Array.prototype.slice.call(this.children).forEach(function(n){
+                        n.horizontalMode=true;
+                    });
+                } else {
+                    this.classList.remove('form-horizontal');
+                }
+            }
+        });
+    </script>
+
+</dom-module>
